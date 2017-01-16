@@ -1,9 +1,8 @@
 const mongoClient = require('mongodb').MongoClient;
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
-const dbURI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}`;
+const { DB_URI } = process.env;
 
 exports.add = val => {
-  mongoClient.connect(dbURI, (err, db) => {
+  mongoClient.connect(DB_URI, (err, db) => {
     if(err) {
       return Promise.reject(err);
     } else {
