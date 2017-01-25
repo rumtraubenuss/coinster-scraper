@@ -5,7 +5,7 @@ function parseHtml(dom, selector) {
   const $ = cheerio.load(dom);
   const domObject = $(selector);
   if(domObject.length === 0) return Promise.reject('Could not find selector in DOM');
-  const val = domObject.text();
+  const val = domObject.first().text();
   return val;
 }
 
