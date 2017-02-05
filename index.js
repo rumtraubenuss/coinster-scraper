@@ -8,8 +8,10 @@ const urls = {
 
 for(const type in urls) {
   scraper.fetchData(urls[type], '.coinprice')
-    .then(val => parseFloat(val.replace(/(\r\n|\n|\r|\$)/gm, '')))
-    .then(val => db.add(val, 'dollar_us', type))
+    .then(val => {
+      const val_parsed = parseFloat(val.replace(/(,|\r\n|\n|\r|\$)/gm, ''));
+      return db.add(val, val_parsed, 'dollar_us', type);
+    })
     .catch(er => console.log('Error', er));
 }
 
