@@ -9,6 +9,7 @@
     "dotenv": "4.0.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "cheerio": "0.22.0",
     "mongodb": "2.2.21",
     "node-fetch": "1.6.3"
